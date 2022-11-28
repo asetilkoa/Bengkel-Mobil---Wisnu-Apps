@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "165841638950",
+    "firebase_url": "https://bengkelservice-fb96e-default-rtdb.firebaseio.com",
+    "project_id": "bengkelservice-fb96e",
+    "storage_bucket": "bengkelservice-fb96e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165841638950:android:07e57b5bc2d8917ae7f8e7",
+        "android_client_info": {
+          "package_name": "com.example.bookingservice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165841638950-ohr3qd1tq540qdrflvhj67dma44isfmb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFscg4J0J744LLI4MAHm8ZnmdBYVwqpH0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165841638950-ohr3qd1tq540qdrflvhj67dma44isfmb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

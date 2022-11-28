@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:paddingTop="50dp"
+    tools:context=".RegistrasiActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrasi"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buat akun baru anda"
+        android:textSize="16sp"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/namaTi"
+        android:layout_above="@id/emailTi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-10dp">
+
+        <EditText
+            android:id="@+id/namaEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_bg"
+            android:hint="Nama"
+            android:inputType="text"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailTi"
+        android:layout_above="@id/passwordTi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp">
+
+        <EditText
+            android:id="@+id/emailEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_bg"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordTi"
+        app:passwordToggleEnabled="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <EditText
+            android:id="@+id/passwordEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:background="@drawable/input_bg"
+            android:hint="Password"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/Registrasibtn"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_button"
+        android:layout_gravity="center"
+        android:text="@string/register"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/Login_lagibtn"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_button"
+        android:layout_gravity="center"
+        android:text="Sudah punya akun? Login sekarang"
+        android:textSize="12sp"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginTop="8dp"/>
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/aireg" />
+
+</LinearLayout>

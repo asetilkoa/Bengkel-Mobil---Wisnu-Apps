@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Bengkel Mobil - Wisnu</string>
+    <string name="sub_title">
+        Selamat datang di aplikasi booking service
+        <br><b>Login</b> untuk masuk ke aplikasi</br>
+        <br><b>Register</b> untuk menikmati layanan kami</br>
+    </string>
+    <string name="register">register</string>
+    <string name="ilustrasi_gambar">Ilustrasi Gambar</string>
+    <string name="login">Login</string>
+</resources>
