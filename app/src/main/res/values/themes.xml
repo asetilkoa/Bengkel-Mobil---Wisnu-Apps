@@ -21,4 +21,8 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+    
+    <style name="Datetheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/primary_color</item>
+    </style>
 </resources>

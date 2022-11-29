@@ -102,6 +102,7 @@ class BookingActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+//            upload data ke firebase
             val Modeldatabase = ModelDatabase(platnomor, tahunkendaraan, serieskendaraan, nama, alamat, nomorhp, tanggalservice, keluhane)
             database.collection("Data Booking").document(nama).set(Modeldatabase)
                 .addOnSuccessListener {
@@ -134,12 +135,16 @@ class BookingActivity : AppCompatActivity() {
                     tglbooking.setText(simpleDateFormat.format(tanggalbok.time))
                 }
 
-            DatePickerDialog(
-                this@BookingActivity, date,
+            val dateP = DatePickerDialog(
+                this@BookingActivity, R.style.Datetheme, date,
                 tanggalbok[Calendar.YEAR],
                 tanggalbok[Calendar.MONTH],
                 tanggalbok[Calendar.DAY_OF_MONTH]
-            ).show()
+            )
+//            disable past date untuk booking yang memungkinkan booking sehari kedepan
+                tanggalbok.add(Calendar.DAY_OF_MONTH,1)
+                dateP.datePicker.minDate = tanggalbok.timeInMillis
+                dateP.show()
         }
     }
 }
