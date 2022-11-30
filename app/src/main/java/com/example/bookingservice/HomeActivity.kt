@@ -2,14 +2,17 @@ package com.example.bookingservice
 
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import androidx.core.app.ActivityCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_home.*
+import java.util.jar.Manifest
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -21,6 +24,7 @@ class HomeActivity : AppCompatActivity() {
 
         showemail = findViewById(R.id.usernametxt)
         auth = FirebaseAuth.getInstance()
+        checkpremission()
 
         val db = FirebaseFirestore.getInstance()
         val docRef = db.collection("user").document(auth.getCurrentUser()!!.getUid())
@@ -64,5 +68,18 @@ class HomeActivity : AppCompatActivity() {
             startActivity(mapIntent)
         }
 
+        sosservice.setOnClickListener {
+            val callIntent = Intent(Intent.ACTION_CALL)
+            callIntent.data = Uri.parse("tel:082327704458")
+            startActivity(callIntent)
+        }
+
+    }
+
+    private fun checkpremission() {
+//        untuk memberikan izin panggilan
+        if (ActivityCompat.checkSelfPermission(this,android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CALL_PHONE),101)
+        }
     }
 }
