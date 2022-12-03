@@ -1,4 +1,4 @@
-package com.example.bookingservice
+package com.example.bookingservice.View.Dashboard
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -9,10 +9,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
+import com.example.bookingservice.R
+import com.example.bookingservice.View.History.HistoryActivity
+import com.example.bookingservice.View.InputBooking.BookingActivity
+import com.example.bookingservice.View.LoginRegister.LoginActivity
+import com.example.bookingservice.View.Main.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_home.*
-import java.util.jar.Manifest
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -43,7 +47,7 @@ class HomeActivity : AppCompatActivity() {
 
         logoutimg.setOnClickListener {
             auth.signOut()
-            Intent(this@HomeActivity, LoginActivity::class.java).also {
+            Intent(this@HomeActivity, MainActivity::class.java).also {
                 it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(it)
             }

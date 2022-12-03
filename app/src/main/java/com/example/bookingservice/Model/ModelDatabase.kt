@@ -1,6 +1,4 @@
-package com.example.bookingservice
-
-import android.widget.EditText
+package com.example.bookingservice.Model
 
 data class ModelDatabase(
     val platnomor: String? = null,

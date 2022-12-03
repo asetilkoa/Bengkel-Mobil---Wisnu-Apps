@@ -1,4 +1,4 @@
-package com.example.bookingservice
+package com.example.bookingservice.View.LoginRegister
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -7,15 +7,13 @@ import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
+import com.example.bookingservice.R
+import com.example.bookingservice.View.Dashboard.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_registrasi.*
-import java.util.*
 import kotlin.collections.HashMap
 
 class RegistrasiActivity : AppCompatActivity() {
@@ -87,17 +85,6 @@ class RegistrasiActivity : AppCompatActivity() {
                     startActivity(it)
                 }
 
-            }
-        }
-    }
-
-
-    override fun onStart() {
-        super.onStart()
-        if (auth.currentUser != null){
-            Intent(this@RegistrasiActivity, HomeActivity::class.java).also {
-                it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(it)
             }
         }
     }

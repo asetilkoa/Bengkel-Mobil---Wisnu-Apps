@@ -1,16 +1,19 @@
-package com.example.bookingservice
+package com.example.bookingservice.View.History
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bookingservice.Model.ModelDatabase
+import com.example.bookingservice.R
 
 class HistoryAdapter(private val modelDatabase: ArrayList<ModelDatabase>) :
     RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.history_item,
+        val itemView = LayoutInflater.from(parent.context).inflate(
+            R.layout.history_item,
             parent,false)
         return ViewHolder(itemView)
     }

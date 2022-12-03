@@ -1,14 +1,14 @@
-package com.example.bookingservice
+package com.example.bookingservice.View.History
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bookingservice.Model.ModelDatabase
+import com.example.bookingservice.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.auth.User
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -36,7 +36,7 @@ class HistoryActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 if (!it.isEmpty){
                     for (dataSnapshot in it.documents){
-                        val data:ModelDatabase? = dataSnapshot.toObject(ModelDatabase::class.java)
+                        val data: ModelDatabase? = dataSnapshot.toObject(ModelDatabase::class.java)
                         dataarrayList.add(data!!)
                     }
                 }
@@ -45,25 +45,4 @@ class HistoryActivity : AppCompatActivity() {
                 Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
             }
     }
-
-//    private fun getDatabasedata() {
-//        database = FirebaseDatabase.getInstance().getReference("DataBooking")
-//        database.addValueEventListener(object : ValueEventListener{
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                if (snapshot.exists()){
-//                    for (dataSnapshot in snapshot.children){
-//                        val  data = dataSnapshot.getValue(ModelDatabase::class.java)
-//                        dataarrayList.add(data!!)
-//                    }
-//
-//                    dataRecyclerview.adapter = HistoryAdapter(dataarrayList)
-//                }
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//                TODO("Not yet implemented")
-//            }
-//
-//        })
-//    }
 }

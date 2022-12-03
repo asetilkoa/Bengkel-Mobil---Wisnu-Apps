@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".BookingActivity">
+    tools:context=".View.InputBooking.BookingActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/header_book"

@@ -1,11 +1,12 @@
-package com.example.bookingservice
+package com.example.bookingservice.View.LoginRegister
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatDelegate
+import com.example.bookingservice.R
+import com.example.bookingservice.View.Dashboard.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.emailEt
@@ -58,15 +59,5 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        if (auth.currentUser != null){
-            Intent(this@LoginActivity, HomeActivity::class.java).also {
-                it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(it)
-            }
-        }
     }
 }

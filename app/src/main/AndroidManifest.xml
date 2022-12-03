@@ -16,22 +16,22 @@
         android:theme="@style/Theme.BookingService"
         tools:targetApi="31">
         <activity
-            android:name=".HistoryActivity"
+            android:name=".View.History.HistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".BookingActivity"
+            android:name=".View.InputBooking.BookingActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".View.Dashboard.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistrasiActivity"
+            android:name=".View.LoginRegister.RegistrasiActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".View.LoginRegister.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".View.Main.MainActivity"
             android:exported="true"
             tools:ignore="DuplicateActivity">
             <intent-filter>
