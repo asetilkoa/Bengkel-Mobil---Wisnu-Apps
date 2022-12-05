@@ -34,4 +34,9 @@ Berikut merupakan user interface aplikasi.
 <img src="https://user-images.githubusercontent.com/76994687/205688423-14a4083b-db8b-42a3-be3b-0af3d1b21b81.png" width=200 height=400>
 </p>
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/76994687/205692682-8d990989-c2f4-4a5a-999b-ce9621db48c5.png" width=200 height=400>
+</p>
+
+
 
