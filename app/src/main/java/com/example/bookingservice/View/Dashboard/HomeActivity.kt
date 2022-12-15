@@ -20,13 +20,13 @@ import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
-    private lateinit var showemail: TextView
+    private lateinit var showname: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        showemail = findViewById(R.id.usernametxt)
+        showname = findViewById(R.id.usernametxt)
         auth = FirebaseAuth.getInstance()
         checkpremission()
 
@@ -36,7 +36,7 @@ class HomeActivity : AppCompatActivity() {
             .addOnSuccessListener { document ->
                 if (document != null) {
                     Log.d(TAG, "DocumentSnapshot data: ${document.data}")
-                    showemail.text = document.getString("nama")
+                    showname.text = document.getString("nama")
                 } else {
                     Log.d(TAG, "No such document")
                 }
