@@ -14,11 +14,17 @@ import com.example.bookingservice.View.History.HistoryActivity
 import com.example.bookingservice.View.InputBooking.BookingActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_profile.*
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var showname: TextView
+    private var firebaseStorage: FirebaseStorage?=null
+    private var storangeReference: StorageReference?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +32,8 @@ class HomeActivity : AppCompatActivity() {
 
         showname = findViewById(R.id.usernametxt)
         auth = FirebaseAuth.getInstance()
+        firebaseStorage = FirebaseStorage.getInstance()
+        storangeReference = firebaseStorage!!.reference
         checkpremission()
 
         val db = FirebaseFirestore.getInstance()
@@ -41,6 +49,12 @@ class HomeActivity : AppCompatActivity() {
             }
             .addOnFailureListener { exception ->
                 Log.d(TAG, "get failed with ", exception)
+            }
+
+//      menampilkan foto dari storage firebase
+        storangeReference!!.child("img/${FirebaseAuth.getInstance().currentUser?.uid}")
+            .downloadUrl.addOnSuccessListener { uri ->
+                Picasso.get().load(uri).into(profileimage)
             }
 
         profileimage.setOnClickListener {
