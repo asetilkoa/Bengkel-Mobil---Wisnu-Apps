@@ -1,11 +1,17 @@
 package com.example.bookingservice.View.InputBooking
 
 import android.app.DatePickerDialog
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Window
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.example.bookingservice.Model.ModelDatabase
 import com.example.bookingservice.R
 import com.google.firebase.auth.FirebaseAuth
@@ -29,11 +35,14 @@ class BookingActivity : AppCompatActivity() {
     private lateinit var database: DocumentReference
     private lateinit var auth: FirebaseAuth
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_booking)
 
-        setInitView()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            setInitView()
+        }
         platnomor = findViewById(R.id.pltnomor)
         tahunkendaraan = findViewById(R.id.thnkendaraan)
         serieskendaraan = findViewById(R.id.srskendaraan)
@@ -113,14 +122,43 @@ class BookingActivity : AppCompatActivity() {
                     nohpe.text?.clear()
                     tglbooking.text?.clear()
                     keluhankerusakan.text?.clear()
-                    Toast.makeText(this, "Booking Sukses!", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this, "Booking Sukses!", Toast.LENGTH_SHORT).show()
+                    succesdialog()
                 }.addOnFailureListener{
-                    Toast.makeText(this, "Booking Gagal!", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this, "Booking Gagal!", Toast.LENGTH_SHORT).show()
+                    failedDialog()
                 }
         }
     }
 
-//    untuk input tanggal
+    private fun failedDialog() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setContentView(R.layout.failed_dialog)
+
+        val btntutup = dialog.findViewById<Button>(R.id.btntutup)
+        btntutup.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
+    }
+
+    private fun succesdialog() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setContentView(R.layout.succes_diaglog)
+
+        val btntutup = dialog.findViewById<Button>(R.id.btntutup)
+        btntutup.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
+    }
+
+    //    untuk input tanggal
+    @RequiresApi(Build.VERSION_CODES.N)
     private fun setInitView() {
         tglbooking.setOnClickListener {
             val tanggalbok = Calendar.getInstance()

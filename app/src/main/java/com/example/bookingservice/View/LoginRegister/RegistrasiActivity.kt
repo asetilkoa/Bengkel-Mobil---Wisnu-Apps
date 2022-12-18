@@ -30,12 +30,24 @@ class RegistrasiActivity : AppCompatActivity() {
 
         Registrasibtn.setOnClickListener {
             val namausr  = namaEt.text.toString().trim()
+            val alamat  = alamatEt.text.toString().trim()
+            val nope  = nopeEt.text.toString().trim()
             val email = emailEt.text.toString().trim()
             val password = passwordEt.text.toString().trim()
 
             if (namausr.isEmpty() || namausr.length > 9){
                 namaEt.error = "Nama terlalu panjang"
                 namaEt.requestFocus()
+                return@setOnClickListener
+            }
+            if (alamat.isEmpty()){
+                alamatEt.error = "Alamat tidak boleh kosong!!!!"
+                alamatEt.requestFocus()
+                return@setOnClickListener
+            }
+            if (nope.isEmpty() || nope.length > 13){
+                nopeEt.error = "Nomor Hp tidak boleh kosong!!!!"
+                nopeEt.requestFocus()
                 return@setOnClickListener
             }
             if (email.isEmpty()){
@@ -55,7 +67,7 @@ class RegistrasiActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            registeruser(email, password, namausr)
+            registeruser(email, password, namausr, alamat, nope)
         }
 
         Login_lagibtn.setOnClickListener {
@@ -65,15 +77,18 @@ class RegistrasiActivity : AppCompatActivity() {
         }
     }
 
-    private fun registeruser(email: String, password: String, namausr: String) {
+    private fun registeruser(email: String, password: String, namausr: String, alamat: String, nope: String) {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this){
             if (it.isSuccessful()){
-                Toast.makeText(this,"User Created.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"User" +
+                        "Created.", Toast.LENGTH_SHORT).show()
                 val userid:String= auth.currentUser!!.uid
                 firebasefirestore.collection("user").document(userid).get()
                 val db = Firebase.firestore
                 val user = HashMap<String, String>()
                 user.put("nama",namausr)
+                user.put("alamat",alamat)
+                user.put("nomor hp",nope)
                 user.put("email",email)
                 user.put("password",password)
                 val userRef = db.collection("user")
@@ -84,8 +99,9 @@ class RegistrasiActivity : AppCompatActivity() {
                     it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(it)
                 }
-
             }
         }
     }
+
+
 }

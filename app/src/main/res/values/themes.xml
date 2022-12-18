@@ -24,5 +24,14 @@
     
     <style name="Datetheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">@color/primary_color</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/DialogButtonStyled</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/DialogButtonStyled</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/DialogButtonStyled</item>
+    </style>
+
+    <style name="DialogButtonStyled" parent="Theme.MaterialComponents.Light">
+        <item name="android:textColor">@color/primary_color</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">15dp</item>
     </style>
 </resources>

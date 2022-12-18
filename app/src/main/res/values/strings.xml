@@ -8,4 +8,9 @@
     <string name="register">register</string>
     <string name="ilustrasi_gambar">Ilustrasi Gambar</string>
     <string name="login">Login</string>
+    <string name="sub_title_pass">
+        Password Anda Harus berbeda dari password
+        yang sudah digunakan sebelumnya
+    </string>
+
 </resources>
