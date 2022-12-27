@@ -87,7 +87,6 @@ class HomeActivity : AppCompatActivity() {
             callIntent.data = Uri.parse("tel:082327704458")
             startActivity(callIntent)
         }
-
     }
 
     private fun checkpremission() {
