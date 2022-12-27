@@ -11,11 +11,11 @@ Menggunakan Firestore database untuk menyimpan database serta menggunakan UID se
 Berikut merupakan user interface aplikasi.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/76994687/205688240-149ed264-4dcd-4d80-875c-2107a401dffa.png" width=200 height=400>
+<img src="https://user-images.githubusercontent.com/76994687/209694359-ee5d2cf3-a3a8-436c-965e-6923f937f770.png" width=200 height=400>
 </p>
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/76994687/205688240-149ed264-4dcd-4d80-875c-2107a401dffa.png" width=200 height=400>
+<img src="https://user-images.githubusercontent.com/76994687/209694461-a5d51d39-980a-412e-8399-0031c583201f.png" width=200 height=400>
 </p>
 
 <p align="center">
